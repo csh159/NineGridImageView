@@ -106,6 +106,12 @@ public class NineGridImageView<T> extends ViewGroup {
             case 6:
                 layoutForSixChildrenView(showChildrenCount);
                 break;
+             case 7:
+                layoutForSevenChildrenView(showChildrenCount);
+                break;
+            case 8:
+                layoutForEightChildrenView(showChildrenCount);
+                break;    
             default:
                 layoutForNoSpanChildrenView(showChildrenCount);
                 break;
@@ -503,7 +509,283 @@ public class NineGridImageView<T> extends ViewGroup {
             }
         }
     }
+ private void layoutForSevenChildrenView(int childrenCount) {
+        int left, top, right, bottom;
+        for (int i = 0; i < childrenCount; i++) {
+            ImageView childrenView = (ImageView) getChildAt(i);
+            switch (mSpanType) {
+                case TOPCOLSPAN:    //3行3列,1 3张跨1行2列
+                    if (i == 0) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop();
+                        right = left + mGridSize * 2 + mGap;
+                        bottom = top + mGridSize;
+                    } else if (i == 1) {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 2) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize * 2 + mGap;
+                        bottom = top + mGridSize;
+                    } else if (i == 3) {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 4) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 5) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    }
+                    childrenView.layout(left, top, right, bottom);
+                    break;
+                case BOTTOMCOLSPAN: //3行3列,4 6张跨1行2列
+                    if (i == 0) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 1) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 2) {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 3) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize * 2 + mGap;
+                        bottom = top + mGridSize;
+                    } else if (i == 4) {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 5) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize * 2 + mGap;
+                        bottom = top + mGridSize;
+                    } else {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    }
+                    childrenView.layout(left, top, right, bottom);
+                    break;
+                case LEFTROWSPAN:   //3行3列,2 4张跨1行2列
+                    if (i == 0) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 1) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop();
+                        right = left + mGridSize * 2 + mGap;
+                        bottom = top + mGridSize;
+                    } else if (i == 2) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 3) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize * 2 + mGap;
+                        bottom = top + mGridSize;
+                    } else if (i == 4) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 5) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    }
+                    childrenView.layout(left, top, right, bottom);
+                    break;
+                default:
+                    break;
+            }
+            if (mAdapter != null) {
+                mAdapter.onDisplayImage(getContext(), childrenView, mImgDataList.get(i));
+            }
+        }
+    }
+  private void layoutForEightChildrenView(int childrenCount) {
+        int left, top, right, bottom;
+        for (int i = 0; i < childrenCount; i++) {
+            ImageView childrenView = (ImageView) getChildAt(i);
+            switch (mSpanType) {
+                case TOPCOLSPAN:    //3行3列,1 2张跨1行1.5列
+                    if (i == 0) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop();
+                        right = left + mGridSize + mGridSize / 2+mGap/2;
+                        bottom = top + mGridSize;
+                    } else if (i == 1) {
+                        left = getPaddingLeft() + mGridSize + mGridSize / 2 + mGap +mGap/2;
+                        top = getPaddingTop();
+                        right = left + mGridSize+ mGridSize / 2 +mGap/2;
+                        bottom = top + mGridSize;
+                    } else if (i == 2) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 3) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 4) {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 5) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 6) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    }
+                    childrenView.layout(left, top, right, bottom);
+                    break;
+                case BOTTOMCOLSPAN: //3行3列,7 8张跨1行1.5列
+                    if (i == 0) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 1) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 2) {
+                        left = getPaddingLeft()+ mGridSize *2+ mGap*2;
+                        top = getPaddingTop() ;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 3) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 4) {
+                        left = getPaddingLeft() + mGridSize + mGap ;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 5) {
+                        left = getPaddingLeft()+ mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize  + mGap ;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 6) {
+                        left = getPaddingLeft() ;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left +  mGridSize+ mGridSize/2+mGap/2;
+                        bottom = top + mGridSize;
+                    } else {
+                        left = getPaddingLeft() + mGridSize+ mGridSize/2+ mGap+mGap/2;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize+ mGridSize/2+mGap/2;
+                        bottom = top + mGridSize;
+                    }
+                    childrenView.layout(left, top, right, bottom);
+                    break;
+                case LEFTROWSPAN:   //3行3列,4 5张跨1行2列
+                    if (i == 0) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 1) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop();
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 2) {
+                        left = getPaddingLeft()+ mGridSize *2+ mGap*2;
+                        top = getPaddingTop() ;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 3) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize +mGridSize/2+mGap/2;
+                        bottom = top + mGridSize;
+                    } else if (i == 4) {
+                        left = getPaddingLeft() + mGridSize +mGridSize/2+mGap +mGap/2;
+                        top = getPaddingTop() + mGridSize + mGap;
+                        right = left + mGridSize +mGridSize/2+mGap/2;
+                        bottom = top + mGridSize;
+                    }else if (i == 5) {
+                        left = getPaddingLeft();
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else if (i == 6) {
+                        left = getPaddingLeft() + mGridSize + mGap;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    } else {
+                        left = getPaddingLeft() + mGridSize * 2 + mGap * 2;
+                        top = getPaddingTop() + mGridSize * 2 + mGap * 2;
+                        right = left + mGridSize;
+                        bottom = top + mGridSize;
+                    }
+                    childrenView.layout(left, top, right, bottom);
+                    break;
+                default:
+                    break;
+            }
+            if (mAdapter != null) {
+                mAdapter.onDisplayImage(getContext(), childrenView, mImgDataList.get(i));
+            }
+        }
+    }
 
+     
     /**
      * 根据跨行跨列的类型，以及图片数量，来确定单元格的行数和列数
      *
